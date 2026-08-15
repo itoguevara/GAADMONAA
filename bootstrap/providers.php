@@ -1,6 +1,9 @@
 <?php
 
+use app\Providers\AppServiceProvider;
+use app\Providers\FortifyServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\VoltServiceProvider::class,
+    AppServiceProvider::class,
+    FortifyServiceProvider::class,
 ];

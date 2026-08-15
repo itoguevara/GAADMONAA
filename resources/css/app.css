@@ -1,3 +1,1255 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+    --color-blue-600: #004072;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+/* ===== Cards ===== */  
+.card-general {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+  background-color:  #acacac; 
+  padding: 0% 2% 15% 2%; 
+}
+.card-data-search{
+position: relative;
+  width: 100%;
+  height: 90%;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+  background-color:  #acacac; 
+  padding:0%;
+
+}
+  /* Formato de Cards para el Login, Testimonios y el Slider de Inicio */
+  .card-login {
+  position: relative;
+  margin-left: 0%;
+  margin-top: 0%;
+  width: 250px; 
+  height: 100%;
+  background-color:  #293333
+  ;
+  align-items:left;  
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+} /* Fin Formato de Cards para el Login, Testimonios y el Slider de Inicio */
+
+.card-search { /* Formato de Cards para el Search Record */
+  position: relative;
+  width: 100%;
+  height:15%;
+  gap: 10px;
+  padding: auto;
+  margin-top: 10px;
+  background-color: #ebe7e7;
+  align-items: center;  
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }  /* Fin Formato de Cards para el Search Record */
+
+.search-table { /* Formato de Cards para el Search Record */
+  width: 100%;
+  height:100%;
+  margin-top: 10px;
+  gap: 10px;
+  padding: auto;
+  background-color: #ebe7e7;
+  align-items: center;  
+  border: 1px solid #494848;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.5);
+}
+.table-header { /* Formato de Cards para el Search Record */
+  width: 100%;
+  height:3%;
+  margin-top: 0%;
+  gap: 10px;
+  background-color:rgb(57, 20, 223); 
+}
+.row-header-menu { /* Formato de Cards para el Search Record */
+  border: 1px solid #969393; 
+  align-items: Left;  
+}
+
+/* ===== Fin de Cards ===== */ 
+.sidebar-principal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #969393;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+} 
+/* ===== Menu de Usuarios ===== */
+.user-menu {
+  position: relative;
+  margin: 0%;
+  background-color: #ebe7e7;
+  cursor: pointer;
+  border: 1px solid #494848;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.5);
+}
+
+.user-menu-item{
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  color:#373c43;
+}
+
+.user-menu:hover {
+  transition: background-image 0.3s ease-in-out; /* Transición suave al cambiar la imagen */
+  background-color: #ebe7e7;}
+
+ /* ===== Fin de Menu de Usuarios ===== */
+
+ /* Grupo de Botones de Acciones*/
+
+ .button-accion-invita-gepo
+{
+  margin-top: 5%;
+  margin-left: 35%;
+  background-image: url('../../public/Back/iconos/InfoBtnBlack.png'); /* Ruta de la imagen de eliminar parentesco */
+  gap: 10px; /* Espacio entre botones */
+  padding: 30px 0px;
+  border: none;
+  align-items: center;
+  border-radius: 50%; /* Hace el círculo */  
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+}
+.button-accion-invita-gepo:hover {
+  background-image: url('../../public/Back/iconos/InfoBtnWhite.png'); /* Ruta de la imagen de agregar parentesco */
+}
+
+ .button-artispp
+{
+  margin-top: 0%;
+  margin-left: 0%;
+  background-image: url('../../public/Back/iconos/NoLeerArti.ico'); /* Ruta de la imagen de eliminar parentesco */
+  gap: 10px; /* Espacio entre botones */
+  padding: 10px 0px;
+  border: none;
+  align-items: center;
+  border-radius: 50%; /* Hace el círculo */  
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+}
+.button-artispp:hover {
+  background-image: url('../../public/Back/iconos/LeerArti.ico'); /* Ruta de la imagen de agregar parentesco */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+
+
+
+.madre-teresa {
+  width: 100%;
+  height: 60%;
+  background-image: url('../../public/Back/iconos/MadreTeresa.png'); /* Ruta de la imagen de eliminar parentesco */
+  background-size: cover; /* Cubre todo el div */
+  background-position:right; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */  
+}  
+
+.accion-radio {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/Back/iconos/GEPORadioOff.png'); /* Ruta de la imagen de eliminar parentesco */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */  
+}  
+.accion-radio:hover {
+  background-image: url('../../public/Back/iconos/GEPORadioOn.png'); /* Ruta de la imagen de agregar parentesco */
+}
+.div-data-search{
+  display: grid;
+  grid-template-columns: repeat(6, 2fr); /* Crea las 6 columnas fijas */
+  grid-template-rows: repeat(3,35%);   /* Crea las 2 filas con altura de 100px */
+  gap: 3px;
+}
+
+/* Estilos base para ver los bloques */
+.item-opcion-search {
+
+  color: white;
+  border-radius: 5px;
+  margin-top: 0%;
+  justify-content: center;  /* Centra los botones de forma horizontal */
+  align-items: center;
+  text-align: center;  
+}
+
+/* Efecto COLSPAN: Ocupa 2 columnas de ancho */
+.div-ancho-item-data-search {
+  grid-column: span 5;
+}
+
+/* Efecto ROWSPAN: Ocupa 2 filas de alto */
+.div-alto-item-data-search {
+/* Efecto ROWSPAN: Ocupa 2 filas de alto */
+  grid-row: span 2;
+}
+
+.div-group-buttons-vertical {
+  display:flex;
+  justify-content: center;  /* Centra los botones de forma horizontal */
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+  
+}
+.div-group-buttons-Horizontal {
+  display: flex;            /* Activa Flexbox */
+  justify-content: center;  /* Centra los botones de forma horizontal */
+  flex-wrap: wrap;          /* Permite que los botones bajen si no hay espacio */
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  gap: 1px;
+  padding: 0px;
+  font-size: 16px;          /* Tamaño de letra legible en PC y móvil */
+  }
+
+.div-group-buttons {
+  display: flex;            /* Activa Flexbox */
+  justify-content: center;  /* Centra los botones de forma horizontal */
+  flex-wrap: wrap;          /* Permite que los botones bajen si no hay espacio */
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid#494848 ;  
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);  
+  box-sizing: border-box;
+  gap: 50px;
+  padding: 20px;
+  background-color: #969393;
+  font-size: 16px;          /* Tamaño de letra legible en PC y móvil */
+  }
+
+  .div-button-session{
+    display: flex;            /* Activa Flexbox */
+    justify-content: center;  /* Centra los botones de forma horizontal */
+    flex-wrap: wrap;          /* Permite que los botones bajen si no hay espacio */
+    
+    position: absolute;
+    left: 30%;
+    height: 7%;
+    align-items: center;
+    gap: 10px;               /* Espacio entre los botones */
+  }
+  .div-button-session-logout{
+      background-color: #969393;
+      top: 105%;
+  }
+  .div-button-session-login{
+      background-color: #acacac;
+      top: 62%;
+  }
+  .button-search{
+    
+    display: flex;
+    flex-direction:column ;
+    gap: 20px;               /* Espacio entre los botones */
+    margin-right: 40px;
+    padding: 20px 20px;
+    border-radius: 50%; /* Hace el círculo */  
+    transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+    background-size: contain; /* Cubre todo el div */
+    background-position:center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */ 
+    cursor: pointer;
+  }
+
+  .button-login{
+    border: none ;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;               /* Espacio entre los botones */
+    margin-right: 4px;
+    padding: 30px 30px;
+    border-radius: 50%; /* Hace el círculo */  
+    transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+    background-size: contain; /* Cubre todo el div */
+    background-position:center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */ 
+    cursor: pointer;
+
+  }
+  .button-accion-sol {
+  border: none ;
+  display: inline-block;
+  gap: 10px;               /* Espacio entre los botones */
+  margin-right: 4px;
+  --medida-boton: 40px; /* Tamaño del botón */
+  width: var(--medida-boton);
+  height: var(--medida-boton);   
+  border-radius: 50%; /* Hace el círculo */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ 
+  cursor: pointer;
+  }
+.button-accion {
+  border: none ;
+  display: inline-block;
+  gap: 10px;               /* Espacio entre los botones */
+  margin-right: 4px;
+  --medida-boton: 60px; /* Tamaño del botón */
+  width: var(--medida-boton);
+  height: var(--medida-boton);   
+  border-radius: 50%; /* Hace el círculo */  
+  transition: background-image 0.5s ease-in-out; /* Transición suave al cambiar la imagen */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ 
+  cursor: pointer;
+  }
+
+.button-accion-no-form {
+  width: 5%;
+  height: 5%;
+  background-color: #f70a0a;
+  border-radius: 50%; /* Hace el círculo */  
+}  
+.button-accion-no-form-exit {
+  background-image: url('../../public/Back/iconos/exitblack.png'); /* Ruta de la imagen de eliminar parentesco */
+}
+.button-accion-no-form-exit:hover {
+  background-image: url('../../public/Back/iconos/exitwhite.png'); /* Ruta de la imagen de agregar parentesco */
+}
+
+.button-accion-menosparen {
+  background-image: url('../../public/Back/iconos/MenosPrentescoWhite.png'); /* Ruta de la imagen de eliminar parentesco */
+}
+.button-accion-menosparen:hover {
+  background-image: url('../../public/Back/iconos/MenosPrentescoBlack.png'); /* Ruta de la imagen de agregar parentesco */
+}
+.button-accion-masparen {
+  position: absolute;
+  margin-top: 0.5%;
+  margin-left: 0%;
+  background-image: url('../../public/Back/iconos/MasPrentescoWhite.png'); /* Ruta de la imagen de eliminar parentesco */
+}
+.button-accion-masparen:hover {
+  background-image: url('../../public/Back/iconos/MasPrentescoBlack.png'); /* Ruta de la imagen de agregar parentesco */
+}
+
+.button-accion-edit {
+  background-image: url('../../public/Back/iconos/editwhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-edit:hover {
+  background-image: url('../../public/Back/iconos/editblack.png'); /* Ruta de la imagen del exit */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ 
+}
+.button-accion-exit {
+  background-image: url('../../public/Back/iconos/exitwhite.png'); /* Ruta de la imagen del logout */
+  
+}
+.button-accion-exit:hover {
+  background-image: url('../../public/Back/iconos/exitblack.png'); /* Ruta de la imagen del exit */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ }
+
+.button-accion-login {
+  background-image: url('../../public/Back/iconos/logoutwhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-login:hover {
+  background-image: url('../../public/Back/iconos/logoutblack.png'); /* Ruta de la imagen del exit */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ }
+
+.button-accion-save {
+  background-image: url('../../public/Back/iconos/GuardarBlanco.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-save:hover {
+  background-image: url('../../public/Back/iconos/GuardarNegro.png'); /* Ruta de la imagen del exit */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */ }
+.button-accion-printer {
+  background-image: url('../../public/Back/iconos/PrinterWhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-printer:hover {
+  background-image: url('../../public/Back/iconos/PrinterBlack.png'); /* Ruta de la imagen del print */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */   
+}
+.button-accion-delete {
+  background-image: url('../../public/Back/iconos/DeleteWhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-delete:hover {
+  background-image: url('../../public/Back/iconos/DeleteBlack.png'); /* Ruta de la imagen del delete */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */   
+}
+.button-accion-search {
+  background-image: url('../../public/Back/iconos/SearchWhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-search:hover {
+  background-image: url('../../public/Back/iconos/SearchBlack.png'); /* Ruta de la imagen del search */
+  background-size: contain; /* Cubre todo el div */
+  background-position:center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */
+}
+.button-accion-cancel {
+  background-image: url('../../public/Back/iconos/CancelWhite.png'); /* Ruta de la imagen del logout */
+}
+.button-accion-cancel:hover {
+  background-image: url('../../public/Back/iconos/CancelBlack.png'); /* Ruta de la imagen del cancel */
+}
+
+
+.button-short{
+  width: 6%;
+  height: 6%;
+ }
+
+.button-large{
+  width: 30%;
+  height: 30%;
+ }
+
+ .size-button-sol{
+  width:  30%;
+  height: 30%;
+ }
+.size-button-mediano{
+  width: 80%;
+  height: 80%;
+ }
+
+ .button-half{
+  width: 10%;
+  height: 10%;
+ }
+
+
+/* FIN Grupo de Botones de Acciones*/
+
+/* ===== Data Entry ===== */
+.data-entry-cmb{
+  gap : 10px;
+  padding: 20px 10px;
+  background-color: #ebe7e7;
+  align-items: center;
+  border: 1px solid#494848 ;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+  display:flex;
+  flex-direction: row;
+}
+.data-entry {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap : 0.2%;
+  padding: 0%;
+  background-color: #ebe7e7;
+  align-items: center;
+  border: 1px solid#494848 ;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+
+}
+/* FIN de Data Entry */
+
+/* ===== Header ===== */
+.div-header-navbar{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0%;
+  }
+.div-header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(243, 239, 239);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  }
+.header-container {
+  width: 50%;
+  height: 50%;
+  border-radius: 8px;  
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(132, 230, 153, 0.1);
+  justify-content: center;
+  padding: 0 10px;
+ }
+
+.header-navbar {
+  display: flex;
+  gap: 10px;
+  padding: 0px 0;
+  max-width: 100%; 
+  margin-top: 0px;
+  margin-left: 10px;
+  justify-content: space-between; 
+  align-items:self-end ;  
+  margin-bottom:12px;
+}
+.navbar-item{
+ font-size: 25px;
+ text-align: center ;
+}
+.menu-config {
+  display: flex;
+  flex-direction:row;  
+  background-color: rgb(243, 239, 239);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  padding: 0%;
+  margin-top: 0%;
+
+}
+  
+
+.header-img-logo{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+}
+
+
+/* ===== Testimonios ===== */
+.card-testimonios {
+  width:55%; 
+  height: 100%;
+  margin-top: 0%;
+  background-color: rgb(248, 242, 242);
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+}
+
+.testi-card-section {
+width: 100%;
+height: 100%;
+background-color: #fbfbfc;
+border-radius: 10px;
+box-shadow: 0 3px 10px rgba(31, 31, 31, 0.1);
+display: flex;
+box-direction: column;
+margin-bottom: auto;
+margin-top: 10px;
+ 
+}
+.card-header-menu-config{
+  width: 100%;
+  height: 150px;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 2% 0% 0% 10%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  background-image: url('../../public/imgweb/LogoWebfinal.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain ; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+
+}
+.testi-card-img-represa{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  background-image: url('../../public/imgweb/RepresaMacagua01.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain ; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+.card-text-general {
+  width:100%; 
+  height: 100%;
+  margin-top: 0%;
+  background-color: rgb(248, 242, 242);
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+}
+.card-footer{
+  width:100%; 
+  height: 280px;
+  margin-top: 0%;
+  background-color:#494848;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+  display: flex;
+  flex-direction: row;
+  padding: 0%;
+
+}
+.card-logo-cvg{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  background-image: url('../../public/imgweb/Cvg.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+
+.card-logo-biesur{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  background-image: url('../../public/imgweb/LogoBiesur.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain ; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+.card-region-guayana{
+  width: 90%;
+  height: 90%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  background-size: contain ; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+.img-region-guayana{
+  background-image: url('../../public/imgweb/regionguayana.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-yrhguayana{
+  background-image: url('../../public/imgweb/YRHGuayana.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-YRHGRAF{
+  background-image: url('../../public/imgweb/YRHGRAF.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-YRHRepresa{
+  background-image: url('../../public/imgweb/YRHRepresa.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-sustentable{
+  background-image: url('../../public/imgweb/sustentable.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-revoindustrial{
+  background-image: url('../../public/imgweb/Transformacionindustrial.png'); /* Cambia la ruta a la imagen que desees */
+}
+.img-gestiomodel{
+  background-image: url('../../public/imgweb/gestionindustrial.png'); /* Cambia la ruta a la imagen que desees */
+}
+
+.text-header{
+  font-family:'Times New Roman', Times, serif;  /* Define la tipografía */
+  font-size: 20px; /* Tamaño de la fuente */
+  font-weight: bold; /* Pone el texto en negrita */
+  text-align:center ; /* Alinea el texto */
+  text-transform: uppercase; /* Convierte todo a mayúsculas */
+  letter-spacing: 2px; /* Espacio entre cada letra */
+  line-height: 1; /* Altura de línea para separar párrafos */
+  margin-top:0;
+  margin-bottom:12px;
+ }
+ .text-footer-color{
+  color:inherit;
+  color: #ffd333; /* Cambia el color del texto */
+  
+}
+.card-radio {
+  width: 100%;
+  height: 100%;
+  align-items: left;
+  margin-top: 2px;
+  margin-left: 2px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background-image: url('../../public/imgweb/GEPORadio.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain; /* Cubre todo el div */
+  background-position: left; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+.testi-card-img {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background-image: url('../../public/imgweb/YRHGEPO.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+
+.testi-card-text {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+
+  
+ }
+
+.testi-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+
+ 
+ .testi-card-text-title {
+  font-size: 25px;
+  text-align: center ;
+  color: #fff;
+  }
+ .text-msg-end-img {
+  color :  #d8dbe0;
+  font-size: 20px;
+  text-align: center;
+  padding: 30px 5px;
+  margin-top: 230px;
+  }
+
+.testi-card-text-msg {
+  color :  #373c43;
+  font-size: 16px;
+  text-align: center;
+  padding: 30px 5px;
+  margin-left: auto;
+  }
+
+.testi-card-text-icon {
+  width: 80%;
+  display: flex;
+  justify-content:space-around ;
+  margin:auto;
+
+}
+.testi-card-text-icon i { 
+  font-size: 25px;
+  color: #176de6;
+  padding: auto auto 0 auto;
+  cursor: pointer;
+  transition: 1.5s ease-in;
+}
+
+  /* ===== Fin de Slider de Testimonio ===== */
+
+/* ===== Slider ===== */
+.slider-container {
+  width: auto;
+  height: auto;
+  border: 3px solid #fff;
+  overflow: hidden;
+  position: relative;
+  top: 2%;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out; /*Q tan lento o rapido pasa de imagen a imagen*/
+  align-items: center;
+  position: relative;
+}
+
+.slide {
+  min-width: 100%;
+  aspect-ratio: 80 / 90; /*Relacion de aspecto de las  imagenes*/
+
+}
+
+.slider img {
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+  display: block;
+
+}
+
+/* ===== video ===== */
+.video-show {
+  position: relative;
+  top: 2%;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+  padding: 0 20px;
+
+}
+
+/* ===== Botones ===== */
+.buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 15px;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 0;
+  font-size: 30px;
+  width: 4%;
+  height: 4%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+/* ===== Flux Card ===== */
+.card {
+  width: 40%; 
+  height: 38%; 
+  background-color: #f8f5f5;
+  align-items: center;
+  padding: 20x ;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,
+0, 0.1);
+}
+.card-info-secun {
+  width: 100%; 
+  height: 100%; 
+  align-items:left ;
+  padding: 20x;
+  gap: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+}
+
+/* ===== Menues =====*/
+/* ===== Textos =====*/
+.text-login {
+  font-family:'Times New Roman', Times, serif ;
+  font-weight: bold;
+  color: #fcfcfc;
+  text-align: center;
+  letter-spacing: 0.20rem;
+  line-height: 1.5;
+  font-size: 4.8rem;
+}
+.text-titulo {
+  font-family:'Times New Roman', Times, serif ;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 0.20rem;
+}
+.size-text-titulo {
+  line-height: 1.5;
+  font-size: 1.8rem;
+ }
+.size-text-subtitulo {
+  line-height: 1;
+  font-size: 1.375rem;
+ }
+.size-text-head-parrafos {
+  line-height: 1;
+  font-size: 1.5rem;
+  text-align: center;  
+}
+.text-align-left {
+  text-align: left;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-right {
+  text-align: right;
+}
+
+
+
+.size-titulo-opciones {
+  line-height: 1;
+  font-size: 1.15rem;
+  text-align: left;
+}
+/* ===== Textos =====*/
+/* ===== Divs ===== */
+.div-info-secun {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f5f5;
+}
+
+
+.div-categorias {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+  .div-categorias img {
+    position: relative;
+    width: 65%;
+    height: 12%;
+    align-items: center;
+    }
+
+  .div-categorias h6 {
+    color: #fff;
+    font-size: 1.125rem;
+    margin-top: 1.67%;
+  } 
+
+  .div-categorias small {
+    color: #f8f5f5;
+    font-size: 0.875rem;
+    margin-top: 0.9%;
+    width: 10%;
+    height: 10%;
+  } 
+.div-testimonios {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20 auto;
+  }
+ 
+  .div-img-invita-gepo {
+  width: 100%;
+  height: 100%;
+  border:rgba(6, 218, 52, 0.1);
+  display: flex;
+  flex-direction:column ;
+  align-items: center;
+  justify-content:center;
+  background-image: url('../../public/imgweb/InvitacionGEPO.png'); /* Cambia la ruta a la imagen que desees */
+  background-size:contain; /* Cubre todo el div */
+  background-position:top ; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  }
+
+.div-img-guayana {
+  width: 100%;
+  height: 100%;
+  border:rgba(6, 218, 52, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20 auto;
+  }
+
+  .div-img-info-principal {
+  background-image: url('../../public/imgweb/LogoAAPeq.png'); /* Cambia la ruta a la imagen que desees */
+  background-size:contain; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+  }
+  .div-info-principal {
+   padding:20px 0;
+  background-color:#373c43;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center ;
+}
+  
+  /* ===== Fin de Divs ===== */
+  /* Footers */
+  .footer-dark {
+  padding:20px 0;
+  color:#f0f9ff;
+  background-color:#373c43;
+  position: relative;
+  padding: 20px 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content:center ;
+}
+
+.footer-dark h4 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+  color:inherit;
+  color: #ffd333;
+}
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  color: #f0f9ff;
+  text-decoration:none;
+  opacity:1;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.5;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:1,25rem;
+  width:2.25%;
+  height:4%;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+
+* Basic Reset and Box Sizing */
+* {
+    box-sizing: border-box; /* Ensures padding/border are included in element's total width/height */
+}
+
+/* Optional: Sticky footer setup */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures wrapper takes up full vertical height */
+}
+
+main {
+    flex: auto; /* Pushes the footer to the bottom by taking up remaining space */
+}
+
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    height: 50%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distributes space evenly between columns */
+    flex-wrap: wrap; /* Allows columns to wrap if needed */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1; /* Distributes available space equally among columns */
+    min-width: 200px; /* Ensures columns don't get too narrow before wrapping */
+    padding: 10px;
+    gap: 10px;
+    
+}
+
+.footer-column ul {
+    list-style: none; /* Removes default list bullet points */
+    padding: 0;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none; /* Removes default link underline */
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stacks columns vertically on small screens */
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .body {
+      min-height: 0vh;
+    }
+    .search{
+      padding:   30px 30px 0 30px;
+    }
+    .movies {
+      padding: 30px;
+    }
+    .icons {
+      padding: 30px;
+    }
+}

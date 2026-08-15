@@ -1,36 +1,27 @@
 <?php
 
-namespace Tests\Feature\Auth;
+use Laravel\Fortify\Features;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Volt\Volt;
-use Tests\TestCase;
+beforeEach(function () {
+    $this->skipUnlessFortifyHas(Features::registration());
+});
 
-class RegistrationTest extends TestCase
-{
-    use RefreshDatabase;
+test('registration screen can be rendered', function () {
+    $response = $this->get(route('register'));
 
-    public function test_registration_screen_can_be_rendered(): void
-    {
-        $response = $this->get('/register');
+    $response->assertOk();
+});
 
-        $response
-            ->assertOk()
-            ->assertSeeVolt('pages.auth.register');
-    }
+test('new users can register', function () {
+    $response = $this->post(route('register.store'), [
+        'name' => 'John Doe',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+    ]);
 
-    public function test_new_users_can_register(): void
-    {
-        $component = Volt::test('pages.auth.register')
-            ->set('name', 'Test User')
-            ->set('email', 'test@example.com')
-            ->set('password', 'password')
-            ->set('password_confirmation', 'password');
+    $response->assertSessionHasNoErrors()
+        ->assertRedirect(route('dashboard', absolute: false));
 
-        $component->call('register');
-
-        $component->assertRedirect(route('dashboard', absolute: false));
-
-        $this->assertAuthenticated();
-    }
-}
+    $this->assertAuthenticated();
+});

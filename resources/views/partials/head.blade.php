@@ -1,0 +1,21 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<title>
+    {{ filled($title ?? null) ? $title.' - '.config('app.name', 'Guayana en Positivo') : config('app.name', 'Guayana en Positivo') }}
+</title>
+
+<link rel="icon" href="/LogoOriginal00.ico" sizes="any">
+<link rel="icon" href="/LogoOriginal00.ico" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/BiesurPeq.ico">
+    <!-- Font Awesome -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+@fonts
+@livewireStyles
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+@fluxAppearance
