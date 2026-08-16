@@ -118,7 +118,7 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'Guayana Productiva en Positivo')).'-cache-'),
+    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'AGREDA & ASOCIADOS')).'-cache-'),
 
     /*
     |--------------------------------------------------------------------------

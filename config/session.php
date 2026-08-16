@@ -129,7 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug((string) env('APP_NAME', 'Guayana Productiva en Positivo')).'-session',
+        Str::slug((string) env('APP_NAME', 'AGREDA & ASOCIADOS')).'-session',
     ),
 
     /*

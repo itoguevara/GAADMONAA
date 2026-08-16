@@ -621,20 +621,52 @@ width: 100%;
 height: 100%;
 background-color: #fbfbfc;
 border-radius: 10px;
-box-shadow: 0 3px 10px rgba(31, 31, 31, 0.1);
+ box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
 display: flex;
 box-direction: column;
 margin-bottom: auto;
 margin-top: 10px;
+padding: 0px;               /* Añade margen interno al contenedor */
  
+}
+.card-columna {
+  display: flex;               /* Activa el modelo Flexbox */
+  flex-direction: column;      /* Alinea los hijos en forma de columna (vertical) */
+  align-items: center;         /* Centra la imagen y el texto horizontalmente */
+  justify-content: center;     /* Centra el contenido verticalmente si el div tiene altura */
+  gap: 15px;                   /* Crea un espacio de separación óptimo entre la imagen y el texto */
+  text-align: center;          /* Centra las líneas del propio texto */
+  padding: 20px;               /* Añade margen interno al contenedor */
+}
+
+.card-columna img {
+  max-width: 100%;             /* Evita que la imagen se desborde del contenedor */
+  height: auto;                /* Mantiene la proporción original de la imagen */
+}
+
+
+
+.card-schenge{
+  width: 100%;
+  height: auto;
+  align-items: center;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0% 0% 0% 10%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
+  background-image: url('../../public/imgweb/visadoschenge.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: cover ; /* Cubre todo el div */
+  background-position: left; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
 }
 .card-header-menu-config{
   width: 100%;
   height: 150px;
   align-items: center;
-  margin-top: 0.2px;
+  margin-top: 0px;
   margin-left: 0px;
-  padding: 2% 0% 0% 10%;
+  padding: 0% 0% 0% 10%;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
   background-image: url('../../public/imgweb/LogoWebfinal.png'); /* Cambia la ruta a la imagen que desees */
@@ -670,7 +702,7 @@ margin-top: 10px;
   width:100%; 
   height: 280px;
   margin-top: 0%;
-  background-color:#494848;
+  background-color:#303636;
   align-items: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
@@ -679,16 +711,16 @@ margin-top: 10px;
   padding: 0%;
 
 }
-.card-logo-cvg{
+.card-visa-aprobada{
   width: 100%;
-  height: 100%;
+  height: 40%;
   align-items: center;
-  margin-top: 0.2px;
-  margin-left: 0px;
-  padding: 20px 30px;
-  background-image: url('../../public/imgweb/Cvg.png'); /* Cambia la ruta a la imagen que desees */
+  padding: 0px 5px;
+  border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0,0, 0.1);
+  background-image: url('../../public/imgweb/visaaprobada.png'); /* Cambia la ruta a la imagen que desees */
   background-size: contain; /* Cubre todo el div */
-  background-position: center; /* Centra la imagen */
+  background-position: top; /* Centra la imagen */
   background-repeat: no-repeat; /* No repite la imagen */  
 }
 
@@ -706,13 +738,13 @@ margin-top: 10px;
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* No repite la imagen */  
 }
-.card-region-guayana{
-  width: 90%;
-  height: 90%;
+.card-text-img-section{
+  width: 100%;
+  height: 100%;
   align-items: center;
-  margin-top: 0.2px;
+  margin-top: 0px;
   margin-left: 0px;
-  padding: 20px 30px;
+  padding: 10px 0px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0,0, 0.50);
   background-size: contain ; /* Cubre todo el div */
@@ -770,7 +802,7 @@ margin-top: 10px;
   background-position: left; /* Centra la imagen */
   background-repeat: no-repeat; /* No repite la imagen */  
 }
-.testi-card-img {
+.card-img-schenge {
   width: 100%;
   height: 100%;
   align-items: center;
@@ -778,7 +810,20 @@ margin-top: 10px;
   margin-left: 0px;
   padding: 20px 30px;
   border-radius: 8px;
-  background-image: url('../../public/imgweb/YRHGEPO.png'); /* Cambia la ruta a la imagen que desees */
+  background-image: url('../../public/imgweb/visadoschenge.png'); /* Cambia la ruta a la imagen que desees */
+  background-size: contain; /* Cubre todo el div */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */  
+}
+.card-img-visa-spanol {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 0.2px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background-image: url('../../public/imgweb/visafamiliarespanol.png'); /* Cambia la ruta a la imagen que desees */
   background-size: contain; /* Cubre todo el div */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* No repite la imagen */  
@@ -789,9 +834,7 @@ margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 15px;
-
-  
+  padding: 5px 10px;
  }
 
 .testi-card-img img {
@@ -950,9 +993,15 @@ button:hover {
 .text-titulo {
   font-family:'Times New Roman', Times, serif ;
   font-weight: bold;
-  color: #333333;
   letter-spacing: 0.20rem;
 }
+.text-black{
+  color: #333333;
+}
+.text-white{
+  color: #fcfafa;
+}
+
 .size-text-titulo {
   line-height: 1.5;
   font-size: 1.8rem;
@@ -960,6 +1009,10 @@ button:hover {
 .size-text-subtitulo {
   line-height: 1;
   font-size: 1.375rem;
+ }
+ .size-text-resaltar {
+  line-height: 1.1;
+  font-size: 1.2rem;
  }
 .size-text-head-parrafos {
   line-height: 1;
@@ -1003,6 +1056,7 @@ button:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+    background-color: #cc0909;
 }
 
   .div-categorias img {

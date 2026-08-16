@@ -25,7 +25,7 @@
             </div>
             <div class="footer-column">
                 <a href="https://zeno.fm/radio/la-voz-de-guayana-89-7-fm?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnxb53zCbxg6tV7X0BPEi6rZEV9DX8JLcxGq2pe28HisLQdspilIlLgtCp6A0_aem_6n4ZKF3Tzl0i626qBq1-FA" target="_blank" rel="noopener noreferrer">
-                    <img class="align-middle w-45 h-60 ml-6.5 mt-0"  src="../../../imgweb/YH00.jpeg" alt="Guayana Productiva en Positivo">
+                    <img class="align-middle w-45 h-60 ml-6.5 mt-0"  src="../../../imgweb/YH00.jpeg" alt="AGREDA & ASOCIADOS">
                 </a>
             </div>            
             <div class="col item social">

@@ -5,7 +5,7 @@
             @endphp
         @if($RutaName == 'home' or $RutaName == 'simpatizantes' or $RutaName == 'simpatizante.edit' or $RutaName == 'generic.show' or $RutaName == 'simpatizante' or $RutaName == 'simpatizante.search' or $RutaName == 'simpatizante.edit' or $RutaName == 'simpatizante.store' )
             @auth
-            <flux:heading level="3" class="text-center text-xl text-gray-800 dark:text-gray-400">Opciones del Usuario</flux:heading>                        
+            <flux:heading level="3"  class="text-titulo text-white size-text-subtitulo text-align-center">Opciones del Usuario</flux:heading>                        
             <flux:sidebar.group >
                 <flux:card class="card-login" > <!--  Etiquetas del Menu de Usuarios-->
                 <x-desktop-user-menu :opcionvar="$opcionvar ?? '0'" :id_user="auth()->user()->id ?? '0'" />  
@@ -28,12 +28,12 @@
                 </form>
                 </div>    
                 <div class="absolute left-0 top-143 w-full" >
-                    <img src="../../../imgweb/EdoBolivar.png" alt="Guayana Productiva en Positivo" width="500" height="300">
+                    <img src="../../../imgweb/LogoAAPeq.png" alt="AGREDA & ASOCIADOS" width="500" height="300">
                 </div>     
                 </flux:card>
             </flux:sidebar.group>
             @else    
-                <flux:heading level="3" class="text-center text-xl text-gray-800 dark:text-gray-400">Acceso a Datos</flux:heading>
+                <flux:heading level="3" class="text-titulo text-white size-text-subtitulo text-align-center">Acceso a Datos</flux:heading>
                 <flux:sidebar.group >
                     <flux:card class="card-login"> <!--  Etiquetas del Login-->
                         <x-auth.login  :opcionvar="$opcionvar ?? '0'">  </x-auth.login>

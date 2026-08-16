@@ -36,7 +36,7 @@
         <flux:spacer />
         <flux:checkbox.group wire:model="notifications" label="Motores de Desarrollo : ">
             <flux:spacer></flux:spacer>
-            <flux:checkbox label="📌Guayana Productiva en Positivo+. (Motor Económico)." value="dni" checked />
+            <flux:checkbox label="📌AGREDA & ASOCIADOS+. (Motor Económico)." value="dni" checked />
             <flux:checkbox label="📌Guayana Social en Positivo+. (Motor Humano e Institucional)." value="nie" checked />
         </flux:checkbox.group>              
         <flux:spacer />
@@ -108,7 +108,7 @@
     <flux:card class="card-info-secun">
         <div class="space-y-4">
             <flux:spacer></flux:spacer>
-            <flux:heading level="3" class="text-titulo size-text-head-parrafos text-align-center">🎙️ “Guayana Productiva en Positivo”, transmitido por CVG La Voz de Guayana 89.7 FM </flux:heading>
+            <flux:heading level="3" class="text-titulo size-text-head-parrafos text-align-center">🎙️ “AGREDA & ASOCIADOS”, transmitido por CVG La Voz de Guayana 89.7 FM </flux:heading>
             <flux:text class="mt-2 text-lg">
                     Bajo la conducción del Lcdo. Yorman Hernández Sánchez, este espacio promueve el emprendimiento,
                     la innovación y la articulación productiva en nuestra región.

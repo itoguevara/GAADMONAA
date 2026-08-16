@@ -3,49 +3,60 @@
     <img src="../../../imgweb/LogoAAPeq.png" alt="AGREDA & ASOCIADOS" width="500" height="300">
   </div>            
 
-<div style="background-color : ">
+<div >
         <form method="POST" action="{{ route('login.store') }}" >
             @csrf
             <div class="absolute left-5 top-60 w-full md:w-3/4">
-                <flux:heading size="xl">Iniciar Sesión</flux:heading>
-                <flux:text class="mt-2">Ingrese sus credenciales para acceder a su cuenta</flux:text>
+                <flux:heading class="text-titulo text-white size-text-subtitulo text-align-center" >Iniciar Sesión</flux:heading>
+                <flux:text class="mt-2  text-white">Ingrese sus credenciales para acceder a su cuenta</flux:text>
             </div>
             <!-- Password -->
             <div class="absolute left-5 top-80 w-full md:w-3/4">
                 <!-- Email Address -->
-                <flux:input
-                    name="email"
-                    :label="__('Email address')"
-                    :value="old('email')"
-                    type="email"
-                    required
-                    autofocus
-                    autocomplete="email"
-                    placeholder="email@example.com"
-                />
+                <flux:field>
+                    <flux:label class="text-footer-color">Email address</flux:label>
+                    <flux:input
+                        name="email"
+                        :value="old('email')"
+                        type="email"
+                        required
+                        autofocus
+                        autocomplete="email"
+                        placeholder="email@example.com"
+                    />
+                </flux:field>
+
+
             </div>
             <!-- Password -->
-            <div class="absolute left-5 top-100 w-full md:w-3/4 size-min">
-                <flux:input
-                    name="password"
-                    :label="__('Password')"
-                    type="password"
-                    required
-                    autocomplete="current-password"
-                    :placeholder="__('Password')"
-                    viewable
-                />
+            <div class="absolute left-5 top-100 w-full md:w-3/4 size-min text-white">
+                <!-- Email Address -->
+                <flux:field>
+                    <flux:label class="text-footer-color">Password</flux:label>                
+                    <flux:input
+                        name="password"
+                        type="password"
+                        required
+                        autocomplete="current-password"
+                        :placeholder="__('Password')"
+                        viewable
+                    />
+                </flux:field>                
             </div>
             <div class="absolute left-25 top-100 w-full">
-             <!-- Remember Me -->
-                <flux:checkbox name="remember" :label="__('Recordarme')" :checked="old('remember')" />
+                <flux:field>
+                    <flux:label class="text-footer-color">Recordarme</flux:label>                
+                    <flux:checkbox class="text-white" name="remember"  :checked="old('remember')" />
+                </flux:field>                
             </div>
             
                 @if (Route::has('password.request'))
                 <div class="absolute left-5 top-117 w-full">
+                <flux:field>
+                    <flux:label class="text-footer-color">Recuperar contraseña</flux:label>                
                     <flux:link  :href="route('password.request')" wire:navigate>
-                        {{ __('Recuperar contraseña') }}
                     </flux:link>
+                </flux:field>                
                 </div>   
                 @endif
                     <div class="div-button-session div-button-session-login">

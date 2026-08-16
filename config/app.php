@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Guayana Productiva en Positivo'),
+    'name' => env('APP_NAME', 'AGREDA & ASOCIADOS'),
 
     /*
     |--------------------------------------------------------------------------
